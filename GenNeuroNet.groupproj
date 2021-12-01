@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{4D746E36-04F3-4CCE-B3CF-CBFBB6B02DCA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GeneticNetwork.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GeneticNetworkTests.cbproj">
+            <Dependencies>GeneticNetwork.cbproj</Dependencies>
+        </Projects>
+        <Projects Include="GeneEdit\GeneEdit.cbproj">
+            <Dependencies>GeneticNetwork.cbproj</Dependencies>
+        </Projects>
+        <Projects Include="NetRunner\NetRunnerApp.cbproj">
+            <Dependencies>GeneticNetwork.cbproj</Dependencies>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GeneticNetwork">
+        <MSBuild Projects="GeneticNetwork.cbproj"/>
+    </Target>
+    <Target Name="GeneticNetwork:Clean">
+        <MSBuild Projects="GeneticNetwork.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GeneticNetwork:Make">
+        <MSBuild Projects="GeneticNetwork.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="GeneticNetworkTests" DependsOnTargets="GeneticNetwork">
+        <MSBuild Projects="GeneticNetworkTests.cbproj"/>
+    </Target>
+    <Target Name="GeneticNetworkTests:Clean" DependsOnTargets="GeneticNetwork:Clean">
+        <MSBuild Projects="GeneticNetworkTests.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GeneticNetworkTests:Make" DependsOnTargets="GeneticNetwork:Make">
+        <MSBuild Projects="GeneticNetworkTests.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="GeneEdit" DependsOnTargets="GeneticNetwork">
+        <MSBuild Projects="GeneEdit\GeneEdit.cbproj"/>
+    </Target>
+    <Target Name="GeneEdit:Clean" DependsOnTargets="GeneticNetwork:Clean">
+        <MSBuild Projects="GeneEdit\GeneEdit.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GeneEdit:Make" DependsOnTargets="GeneticNetwork:Make">
+        <MSBuild Projects="GeneEdit\GeneEdit.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="NetRunnerApp" DependsOnTargets="GeneticNetwork">
+        <MSBuild Projects="NetRunner\NetRunnerApp.cbproj"/>
+    </Target>
+    <Target Name="NetRunnerApp:Clean" DependsOnTargets="GeneticNetwork:Clean">
+        <MSBuild Projects="NetRunner\NetRunnerApp.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NetRunnerApp:Make" DependsOnTargets="GeneticNetwork:Make">
+        <MSBuild Projects="NetRunner\NetRunnerApp.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GeneticNetwork;GeneticNetworkTests;GeneEdit;NetRunnerApp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GeneticNetwork:Clean;GeneticNetworkTests:Clean;GeneEdit:Clean;NetRunnerApp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GeneticNetwork:Make;GeneticNetworkTests:Make;GeneEdit:Make;NetRunnerApp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
