@@ -2,4 +2,6 @@
 Win32/
 *.local
 dunit.ini
+__history/
+__recovery/
 
