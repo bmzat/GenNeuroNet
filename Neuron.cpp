@@ -32,7 +32,7 @@ void CNeuron::debug(unsigned int reason)
 #ifdef _DEBUG
    for(std::vector<NeuronDebugHandler_t*>::iterator it=dbg.begin();it!=dbg.end();++it){
        if((*it)->mask&reason){
-       		(*it)->fn(reason,(*it)->pData,this);
+       		excitement=(reason&NDBG_REASON::DBG_INPUT)?(*it)->fn(reason,(*it)->pData,this):excitement;
        }
   }
 #endif

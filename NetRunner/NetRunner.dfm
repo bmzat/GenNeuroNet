@@ -85,9 +85,6 @@ object Form2: TForm2
         Text = 'Started fresh'
         Width = 300
       end>
-    ExplicitLeft = 264
-    ExplicitTop = 632
-    ExplicitWidth = 0
   end
   object Memo1: TMemo
     Left = 852
@@ -112,7 +109,7 @@ object Form2: TForm2
     Width = 961
     Height = 45
     Max = 255
-    Position = 3
+    Position = 10
     TabOrder = 7
   end
   object NumNeurons: TTrackBar
@@ -121,7 +118,7 @@ object Form2: TForm2
     Width = 961
     Height = 45
     Max = 255
-    Position = 3
+    Position = 10
     TabOrder = 8
   end
   object NumOutputs: TTrackBar
@@ -130,7 +127,7 @@ object Form2: TForm2
     Width = 961
     Height = 45
     Max = 255
-    Position = 3
+    Position = 10
     TabOrder = 9
   end
   object Button1: TButton

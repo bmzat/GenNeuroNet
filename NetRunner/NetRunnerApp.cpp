@@ -3,6 +3,8 @@
 #include <vcl.h>
 #pragma hdrstop
 #include <tchar.h>
+
+#pragma comment(lib, "GeneticNetwork")
 //---------------------------------------------------------------------------
 USEFORM("NetRunner.cpp", Form2);
 //---------------------------------------------------------------------------
