@@ -22,6 +22,8 @@ float gridDebug(unsigned int reason, void* pData, CNeuron *pNeuron)
 {
     DbgTag_t *tag=(DbgTag_t*)pData;
 
+    if(pData == nullptr)return 0.0f;
+
     if(reason&NDBG_REASON::DBG_INPUT){ // Read Input from grid cell
         return 0.0f;
     }else{                             // Write output to grid cell
