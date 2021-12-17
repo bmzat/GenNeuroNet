@@ -21,3 +21,7 @@ void CInputNeuron::stimulate(CIndividual *pInd,CWorld *pWorld)
         throw "CInputNeuron::stimulate() not implemented, need to override in derived class";
 #endif
 }
+
+CInputNeuron* CInputNeuron::create(void *pData){
+     return new CInputNeuron;
+}

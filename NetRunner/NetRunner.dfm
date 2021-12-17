@@ -23,7 +23,7 @@ object Form2: TForm2
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goFixedRowDefAlign]
     TabOrder = 0
   end
-  object StringGrid1: TStringGrid
+  object NeuronGrid: TStringGrid
     Left = 215
     Top = 179
     Width = 417
@@ -35,7 +35,7 @@ object Form2: TForm2
       93
       64)
   end
-  object StringGrid2: TStringGrid
+  object OutputGrid: TStringGrid
     Left = 638
     Top = 179
     Width = 185
@@ -137,5 +137,6 @@ object Form2: TForm2
     Height = 25
     Caption = 'Prepare'
     TabOrder = 10
+    OnClick = Button1Click
   end
 end

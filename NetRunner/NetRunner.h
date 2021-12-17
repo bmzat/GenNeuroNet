@@ -14,8 +14,8 @@ class TForm2 : public TForm
 {
 __published:	// Von der IDE verwaltete Komponenten
 	TStringGrid *InputGrid;
-	TStringGrid *StringGrid1;
-	TStringGrid *StringGrid2;
+	TStringGrid *NeuronGrid;
+	TStringGrid *OutputGrid;
 	TEdit *HexCodeEdit;
 	TStatusBar *StatusBar1;
 	TMemo *Memo1;
@@ -24,6 +24,7 @@ __published:	// Von der IDE verwaltete Komponenten
 	TTrackBar *NumNeurons;
 	TTrackBar *NumOutputs;
 	TButton *Button1;
+	void __fastcall Button1Click(TObject *Sender);
 private:	// Benutzer-Deklarationen
 public:		// Benutzer-Deklarationen
 	__fastcall TForm2(TComponent* Owner);
